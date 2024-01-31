@@ -12,7 +12,7 @@ je kunt vinden in `config.ini`.
 
 ## Huidige functionaliteit
 
-Het script `oltp2staging.py` kopieert de tabellen van oltp naar 
+Het python script `oltp2staging` kopieert de tabellen van oltp naar 
 staging in het data warehouse. 
 
 ## Package management met poetry
