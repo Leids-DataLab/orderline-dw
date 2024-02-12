@@ -35,6 +35,7 @@ Voeg dan toe:
 databases_connection_string_oltp = None
 """
 import configparser
+import os
 
 # Hier staan de config parameters. Ze worden gelezen uit config_{environment}.ini.
 databases_connection_string_oltp = None
@@ -51,9 +52,10 @@ def _read_globals_from_config_file(env):
     :param env: De environment waarvoor de parameters worden ingelezen.
     :return: Niks.
     """
-    config_file = f"config_{env}.ini"
+    config_file_name = f'config_{env}.ini'
+    config_file_path = os.path.join(os.path.dirname(__file__), config_file_name)
     config_parser = configparser.ConfigParser()
-    config_parser.read(config_file)
+    config_parser.read(config_file_path)
 
     globals().update({f"{section}_{key}": value for section in config_parser.sections() for key, value in config_parser.items(section)})
 
