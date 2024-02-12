@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "orderlinedw"
+name = "orderlinedw_scripts"
 version = "0.1.0"
 description = ""
 authors = ["Mischa Barthel <barthel.m@hsleiden.nl>"]
