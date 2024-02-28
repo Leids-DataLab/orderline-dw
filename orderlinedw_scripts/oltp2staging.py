@@ -3,7 +3,7 @@ import logging
 import pandas as pd
 import sqlalchemy as sa
 
-from orderlinedw import config
+from orderlinedw_scripts import config
 
 logger = logging.getLogger(__name__)
 
@@ -12,7 +12,7 @@ SCHEMA_DW = "staging"
 TABLES = ["klant", "productcategorie", "productsubcategorie", "product", "bestelling", "bestellingregel"]
 
 
-def copy_tables(engine_oltp, engine_dw):
+def _copy_tables(engine_oltp, engine_dw):
     global SCHEMA_OLTP, TABLES
 
     for table in TABLES:
@@ -22,7 +22,7 @@ def copy_tables(engine_oltp, engine_dw):
         df.to_sql(schema=SCHEMA_DW, name=table, if_exists='replace', index=False, con=engine_dw)
 
 
-if __name__ == "__main__":
+def execute():
     logging.basicConfig(level=logging.DEBUG,
                         format='%(asctime)s - %(levelname)s - %(message)s',
                         datefmt='%Y-%m-%d %H:%M:%S')
@@ -30,7 +30,11 @@ if __name__ == "__main__":
     engine_oltp = sa.create_engine(config.databases_connection_string_oltp)
     engine_dw = sa.create_engine(config.databases_connection_string_dw, fast_executemany=True)
     try:
-        copy_tables(engine_oltp=engine_oltp, engine_dw=engine_dw)
+        _copy_tables(engine_oltp=engine_oltp, engine_dw=engine_dw)
     finally:
         engine_oltp.dispose()
         engine_dw.dispose()
+
+
+if __name__ == "__main__":
+    execute()

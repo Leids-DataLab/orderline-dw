@@ -10,9 +10,7 @@ python = "^3.11"
 pandas = "^2.2.0"
 sqlalchemy = "^2.0.25"
 pyarrow = "^15.0.0"
-dbt-core = "^1.7.7"
-dbt-sqlserver = "^1.4.3"
-
+pyodbc = "^5.0.1"
 
 [build-system]
 requires = ["poetry-core"]
