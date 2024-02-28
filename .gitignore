@@ -1,4 +1,3 @@
-.idea/
-orderlinedw/config_dev.ini
-orderlinedw/__pycache__/
+orderlinedw_scripts/config_dev.ini
+orderlinedw_scripts/__pycache__/
 
