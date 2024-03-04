@@ -12,7 +12,6 @@ sqlalchemy = "^2.0.25"
 pyarrow = "^15.0.0"
 pyodbc = "^5.0.1"
 
-
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
