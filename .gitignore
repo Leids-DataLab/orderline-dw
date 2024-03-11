@@ -1,3 +1,4 @@
 orderlinedw_scripts/config_dev.ini
 orderlinedw_scripts/__pycache__/
 
+.env
