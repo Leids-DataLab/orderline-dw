@@ -3,7 +3,7 @@ import logging
 import pandas as pd
 import sqlalchemy as sa
 
-from orderlinedw_scripts import config
+from orderline_dw_scripts import config
 
 logger = logging.getLogger(__name__)
 
